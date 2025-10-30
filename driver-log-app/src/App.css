@@ -1,0 +1,26 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.app-content {
+  margin-top: 80px; /* décale le contenu sous la navbar */
+  padding: 20px 0;
+  min-height: calc(100vh - 80px); /* prend toute la hauteur restante */
+}
+
+.card {
+  transition: transform 0.1s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}

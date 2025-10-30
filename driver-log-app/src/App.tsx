@@ -1,8 +1,6 @@
-import React from 'react';
 import { Container, Navbar } from 'react-bootstrap'
 import Dashboard from './pages/Dashboard'
-import EldLogSheet from './components/EldLogSheet';
-import logo from './logo.svg';
+
 // @ts-ignore
 import './App.css';
 

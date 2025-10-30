@@ -131,6 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # List of allowed domains (i.e frontend) to communicate with my backend..
 CORS_ALLOWED_ORIGINS = [
+    "https://driver-daily-log-94hw.onrender.com",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]

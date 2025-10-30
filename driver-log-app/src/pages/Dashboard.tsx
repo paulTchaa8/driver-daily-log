@@ -45,7 +45,7 @@ const Dashboard = () => {
           </>
         ) : (
           <Card className="text-center p-5 text-muted">
-            <p>Fill the form to generate the trip details 🚛</p>
+            <p>Fill the form to generate the trip details.</p>
           </Card>
         )}
       </Col>

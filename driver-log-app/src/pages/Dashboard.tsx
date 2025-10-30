@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Row, Col, Card, Spinner } from 'react-bootstrap'
 import InputForm from '../components/InputForm'
 import MapView from '../components/MapView'
-import EldLogs from '../components/EldLogs'
 import * as routeApi from '../api/routeApi'
 import EldLogSheet from '../components/EldLogSheet'
 

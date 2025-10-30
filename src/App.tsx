@@ -1,25 +1,31 @@
 import React from 'react';
+import { Container, Navbar } from 'react-bootstrap'
+import Dashboard from './pages/Dashboard'
+import EldLogSheet from './components/EldLogSheet';
 import logo from './logo.svg';
+// @ts-ignore
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar 
+        bg="dark"
+        variant="dark"
+        fixed="top"
+        className="shadow-sm"
+        style={{ zIndex: 1030 }}
+      >
+        <Container>
+          <Navbar.Brand>Driver Daily Log</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <div className="app-content">
+        <Container>
+          <Dashboard />
+        </Container>
+      </div>
+    </>
   );
 }
 

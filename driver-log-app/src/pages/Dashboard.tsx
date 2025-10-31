@@ -11,27 +11,40 @@ const Dashboard = () => {
 
   const handleSubmit = async (driverObj: any) => {
     setLoading(true)
-    routeApi.handleSubmit(driverObj).then((result: any) => {
-      console.log('reponse api/route => ', result)
-      setData(result)
-    }).catch(err => {
-      console.error(err)
-      alert('Error fetching route')
-    }).finally(() => {
-      setLoading(false)
-    })
+    routeApi.handleSubmit(driverObj)
+      .then((result: any) => {
+        console.log('reponse api/route => ', result)
+        setData(result)
+      })
+      .catch(err => {
+        console.error(err)
+        alert('Error fetching route')
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
     <Row>
+      {/* === Colonne gauche : sticky form === */}
       <Col md={4}>
-        <Card className="shadow-sm">
-          <Card.Body>
-            <InputForm onSubmit={handleSubmit} />
-          </Card.Body>
-        </Card>
+        <div
+          style={{
+            position: 'sticky',
+            top: '80px',
+            zIndex: 10,
+          }}
+        >
+          <Card className="shadow-sm">
+            <Card.Body>
+              <InputForm onSubmit={handleSubmit} />
+            </Card.Body>
+          </Card>
+        </div>
       </Col>
 
+      {/* === Colonne droite : contenu scrollable === */}
       <Col md={8}>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center h-100">
@@ -40,7 +53,6 @@ const Dashboard = () => {
         ) : data ? (
           <>
             <MapView geojson={data.geojson_route} summary={data.route_summary} />
-            {/* <EldLogs logs={data.eld_records} /> */}
             <EldLogSheet logs={data.eld_records} />
           </>
         ) : (

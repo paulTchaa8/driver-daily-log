@@ -22,10 +22,19 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
     onSubmit(formData)
   }
 
+  // ✅ Vérifie si tous les champs sont remplis
+  const isFormValid =
+    formData.current_location.trim() !== '' &&
+    formData.pickup_location.trim() !== '' &&
+    formData.dropoff_location.trim() !== '' &&
+    formData.current_cycle_hours.trim() !== ''
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
-        <Form.Label>Current Location</Form.Label>
+        <Form.Label>
+          Current Location <span className="text-danger">*</span>
+        </Form.Label>
         <Form.Control
           type="text"
           name="current_location"
@@ -37,7 +46,9 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Pickup Location</Form.Label>
+        <Form.Label>
+          Pickup Location <span className="text-danger">*</span>
+        </Form.Label>
         <Form.Control
           type="text"
           name="pickup_location"
@@ -49,7 +60,9 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Dropoff Location</Form.Label>
+        <Form.Label>
+          Dropoff Location <span className="text-danger">*</span>
+        </Form.Label>
         <Form.Control
           type="text"
           name="dropoff_location"
@@ -61,7 +74,9 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Cycle Used (hours)</Form.Label>
+        <Form.Label>
+          Cycle Used (hours) <span className="text-danger">*</span>
+        </Form.Label>
         <Form.Control
           type="number"
           name="current_cycle_hours"
@@ -72,7 +87,12 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" className="w-100">
+      <Button
+        variant={isFormValid ? 'dark' : 'secondary'}
+        type="submit"
+        className="w-100"
+        disabled={!isFormValid}
+      >
         Generate Route
       </Button>
     </Form>

@@ -1,0 +1,47 @@
+{
+  "APP": {
+    "TITLE": "Driver Daily Log",
+    "GREETING": "Welcome, {{name}}!",
+    "DASHBOARD": "Dashboard",
+    "LANGUAGE": {
+      "FR": "French",
+      "EN": "English"
+    }
+  },
+  "DASHBOARD": {
+    "LOADING": "Loading route details...",
+    "ERROR": "Error fetching route",
+    "EMPTY_MESSAGE": "Fill the form to generate the trip details.",
+    "FORM_TITLE": "Driver Information",
+    "TRIP_MAP": "Trip Route Map",
+    "ELD_LOGS": "Electronic Logbook Records"
+  },
+  "INPUT_FORM": {
+    "CURRENT_LOCATION": "Current Location",
+    "CURRENT_LOCATION_PLACEHOLDER": "e.g. Chicago, IL",
+    "PICKUP_LOCATION": "Pickup Location",
+    "PICKUP_LOCATION_PLACEHOLDER": "e.g. Indianapolis, IN",
+    "DROPOFF_LOCATION": "Dropoff Location",
+    "DROPOFF_LOCATION_PLACEHOLDER": "e.g. Detroit, MI",
+    "CYCLE_HOURS": "Cycle Used (hours)",
+    "CYCLE_HOURS_PLACEHOLDER": "e.g. 12",
+    "SUBMIT": "Generate Route"
+  },
+  "MAP_VIEW": {
+    "CARD_HEADER": "Trip Route",
+    "LOADING": "Loading map...",
+    "DISTANCE": "Distance",
+    "DURATION": "Duration"
+  },
+  "ELD_LOG_SHEET": {
+    "TITLE": "Driver's Daily Log",
+    "START": "Start (UTC):",
+    "DRIVING_TIME": "Driving time:",
+    "STATUS": {
+      "OFF_DUTY": "Off Duty",
+      "SLEEPER": "Sleeper",
+      "DRIVING": "Driving",
+      "ON_DUTY": "On Duty"
+    }
+  }
+}

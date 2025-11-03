@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { Card, Spinner } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 interface MapViewProps {
   geojson: any;
@@ -10,13 +11,11 @@ interface MapViewProps {
 }
 
 const MapView: React.FC<MapViewProps> = ({ geojson, summary }) => {
+  const { t } = useTranslation();
   const [userPosition, setUserPosition] = useState<[number, number] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('GeoJSON data:', geojson);
-
-    // Tenter de récupérer la position du navigateur
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -24,14 +23,13 @@ const MapView: React.FC<MapViewProps> = ({ geojson, summary }) => {
           setLoading(false);
         },
         (err) => {
-          console.warn('Impossible de récupérer la localisation:', err.message);
-          // Valeur par défaut (centre des US si refus)
+          console.warn('Cannot get location:', err.message);
           setUserPosition([39.5, -98.35]);
           setLoading(false);
         }
       );
     } else {
-      console.warn("La géolocalisation n'est pas supportée par ce navigateur.");
+      console.warn("Geolocation not supported");
       setUserPosition([39.5, -98.35]);
       setLoading(false);
     }
@@ -40,10 +38,10 @@ const MapView: React.FC<MapViewProps> = ({ geojson, summary }) => {
   if (loading) {
     return (
       <Card className="mb-4 shadow-sm">
-        <Card.Header>Trip Route</Card.Header>
+        <Card.Header>{t('MAP_VIEW.CARD_HEADER')}</Card.Header>
         <Card.Body className="d-flex justify-content-center align-items-center" style={{ height: '300px' }}>
           <Spinner animation="border" variant="primary" />
-          <span className="ms-2">Chargement de la carte...</span>
+          <span className="ms-2">{t('MAP_VIEW.LOADING')}</span>
         </Card.Body>
       </Card>
     );
@@ -51,7 +49,7 @@ const MapView: React.FC<MapViewProps> = ({ geojson, summary }) => {
 
   return (
     <Card className="mb-4 shadow-sm">
-      <Card.Header>Trip Route</Card.Header>
+      <Card.Header>{t('MAP_VIEW.CARD_HEADER')}</Card.Header>
       <Card.Body>
         <div style={{ height: '300px' }}>
           <MapContainer
@@ -68,8 +66,8 @@ const MapView: React.FC<MapViewProps> = ({ geojson, summary }) => {
         </div>
         {summary && (
           <p className="mt-3">
-            <strong>Distance:</strong> {summary.distance_miles.toFixed(2)} miles <br />
-            <strong>Duration:</strong> {(summary.duration_seconds / 3600).toFixed(2)} hours
+            <strong>{t('MAP_VIEW.DISTANCE')}:</strong> {summary.distance_miles.toFixed(2)} miles <br />
+            <strong>{t('MAP_VIEW.DURATION')}:</strong> {(summary.duration_seconds / 3600).toFixed(2)} hours
           </p>
         )}
       </Card.Body>

@@ -1,0 +1,47 @@
+{
+  "APP": {
+    "TITLE": "Journal Quotidien du Conducteur",
+    "GREETING": "Bienvenue, {{name}} !",
+    "DASHBOARD": "Tableau de bord",
+    "LANGUAGE": {
+      "FR": "Français",
+      "EN": "Anglais"
+    }
+  },
+  "DASHBOARD": {
+    "LOADING": "Chargement des détails de l'itinéraire...",
+    "ERROR": "Erreur lors de la récupération de l'itinéraire",
+    "EMPTY_MESSAGE": "Remplissez le formulaire pour générer les détails du trajet.",
+    "FORM_TITLE": "Informations du conducteur",
+    "TRIP_MAP": "Carte de l'itinéraire",
+    "ELD_LOGS": "Enregistrements du journal électronique"
+  },
+  "INPUT_FORM": {
+    "CURRENT_LOCATION": "Localisation actuelle",
+    "CURRENT_LOCATION_PLACEHOLDER": "ex. Chicago, IL",
+    "PICKUP_LOCATION": "Lieu de départ",
+    "PICKUP_LOCATION_PLACEHOLDER": "ex. Indianapolis, IN",
+    "DROPOFF_LOCATION": "Lieu de destination",
+    "DROPOFF_LOCATION_PLACEHOLDER": "ex. Détroit, MI",
+    "CYCLE_HOURS": "Cycle utilisé (heures)",
+    "CYCLE_HOURS_PLACEHOLDER": "ex. 12",
+    "SUBMIT": "Générer l'itinéraire"
+  },
+  "MAP_VIEW": {
+    "CARD_HEADER": "Itinéraire du trajet",
+    "LOADING": "Chargement de la carte...",
+    "DISTANCE": "Distance",
+    "DURATION": "Durée"
+  },
+  "ELD_LOG_SHEET": {
+    "TITLE": "Journal Quotidien du Conducteur",
+    "START": "Début (UTC) :",
+    "DRIVING_TIME": "Temps de conduite :",
+    "STATUS": {
+      "OFF_DUTY": "Hors service",
+      "SLEEPER": "Repos",
+      "DRIVING": "Conduite",
+      "ON_DUTY": "Travail"
+    }
+  }
+}

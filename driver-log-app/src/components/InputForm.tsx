@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import { useTranslation } from 'react-i18next'
 
 interface InputFormProps {
   onSubmit: (formData: any) => void
 }
 
 const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     current_location: '',
     pickup_location: '',
@@ -22,7 +24,6 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
     onSubmit(formData)
   }
 
-  // ✅ Vérifie si tous les champs sont remplis
   const isFormValid =
     formData.current_location.trim() !== '' &&
     formData.pickup_location.trim() !== '' &&
@@ -33,56 +34,56 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Label>
-          Current Location <span className="text-danger">*</span>
+          {t('INPUT_FORM.CURRENT_LOCATION')} <span className="text-danger">*</span>
         </Form.Label>
         <Form.Control
           type="text"
           name="current_location"
           value={formData.current_location}
           onChange={handleChange}
-          placeholder="e.g. Chicago, IL"
+          placeholder={t('INPUT_FORM.CURRENT_LOCATION_PLACEHOLDER')}
           required
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>
-          Pickup Location <span className="text-danger">*</span>
+          {t('INPUT_FORM.PICKUP_LOCATION')} <span className="text-danger">*</span>
         </Form.Label>
         <Form.Control
           type="text"
           name="pickup_location"
           value={formData.pickup_location}
           onChange={handleChange}
-          placeholder="e.g. Indianapolis, IN"
+          placeholder={t('INPUT_FORM.PICKUP_LOCATION_PLACEHOLDER')}
           required
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>
-          Dropoff Location <span className="text-danger">*</span>
+          {t('INPUT_FORM.DROPOFF_LOCATION')} <span className="text-danger">*</span>
         </Form.Label>
         <Form.Control
           type="text"
           name="dropoff_location"
           value={formData.dropoff_location}
           onChange={handleChange}
-          placeholder="e.g. Detroit, MI"
+          placeholder={t('INPUT_FORM.DROPOFF_LOCATION_PLACEHOLDER')}
           required
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>
-          Cycle Used (hours) <span className="text-danger">*</span>
+          {t('INPUT_FORM.CYCLE_HOURS')} <span className="text-danger">*</span>
         </Form.Label>
         <Form.Control
           type="number"
           name="current_cycle_hours"
           value={formData.current_cycle_hours}
           onChange={handleChange}
-          placeholder="e.g. 12"
+          placeholder={t('INPUT_FORM.CYCLE_HOURS_PLACEHOLDER')}
           required
         />
       </Form.Group>
@@ -93,7 +94,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
         className="w-100"
         disabled={!isFormValid}
       >
-        Generate Route
+        {t('INPUT_FORM.SUBMIT')}
       </Button>
     </Form>
   )
